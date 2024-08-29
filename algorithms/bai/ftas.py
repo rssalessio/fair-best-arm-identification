@@ -6,7 +6,7 @@ from algorithms.bai.bai_algorithm import BAIAlgorithm
 from envs.env_noise import EnvNoise, GaussianEnvNoise
 from typing import Callable
 
-class FairBAI(BAIAlgorithm):
+class FTaS(BAIAlgorithm):
     def __init__(self, mab: MAB, fast_stopping_rule: bool = True):
         """
         Initialize FairBAI.

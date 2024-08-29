@@ -3,7 +3,7 @@ import cvxpy as cp
 import matplotlib.pyplot as plt
 from algorithms.MAB import MAB
 from algorithms.reward_model import LinearRewardModel, EqualGapRewardModel,CustomRewardModel
-from algorithms.bai.fbai import FairBAI
+from algorithms.bai.ftas import FTaS
 from algorithms.bai.tas import TaS
 from algorithms.bai.uniform import UniformBAI
 from algorithms.fairness_model import ProportionalFairnessModel, VectorFairnessModel, make_prespecified_fairness_model
@@ -55,11 +55,11 @@ if __name__ == '__main__':
             print(f"[{name}]: 2T*_{{theta}}log(1/delta) = {2*sol*np.log(1/DELTA)}\n2T*_{{theta,p}}log(1/delta) = {2*sol_fair*np.log(1/DELTA)}")
             tqdm_range = tqdm(range(N_SIM))
             tas = TaS(instance, fast_stopping_rule=True)
-            fbai = FairBAI(instance, fast_stopping_rule=True)
+            fbai = FTaS(instance, fast_stopping_rule=True)
             uniform_bai = UniformBAI(instance, fast_stopping_rule=True)
 
             methods = [
-                ('F-BAI', FairBAI,  {'delta': DELTA,'FAIR': True,'VERBOSE':False, 'SOLVER':SOLVER, 'pre_specified_rate':False, 'alpha':ALPHA}),
+                ('F-TaS', FTaS,  {'delta': DELTA,'FAIR': True,'VERBOSE':False, 'SOLVER':SOLVER, 'pre_specified_rate':False, 'alpha':ALPHA}),
                 ('TaS', TaS, {'delta': DELTA,'FAIR': False,'VERBOSE':False, 'SOLVER':SOLVER, 'alpha':ALPHA}),
                 ('Uniform Fair', UniformBAI,  {'delta': DELTA,'FAIR': True})
             ]

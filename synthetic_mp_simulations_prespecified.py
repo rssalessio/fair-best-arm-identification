@@ -3,7 +3,7 @@ import cvxpy as cp
 import matplotlib.pyplot as plt
 from algorithms.MAB import MAB
 from algorithms.reward_model import LinearRewardModel, EqualGapRewardModel
-from algorithms.bai.fbai import FairBAI
+from algorithms.bai.ftas import FTaS
 from algorithms.bai.tas import TaS
 from algorithms.bai.uniform import UniformBAI
 from algorithms.fairness_model import ProportionalFairnessModel, VectorFairnessModel, make_prespecified_fairness_model
@@ -59,11 +59,11 @@ if __name__ == '__main__':
 
             tqdm_range = tqdm(range(N_SIM))
             tas = TaS(instance, fast_stopping_rule=True)
-            fbai = FairBAI(instance, fast_stopping_rule=True)
+            fbai = FTaS(instance, fast_stopping_rule=True)
             uniform_bai = UniformBAI(instance, fast_stopping_rule=True)
 
             methods = [
-                ('F-BAI', FairBAI,  {'delta': DELTA,'FAIR': True,'VERBOSE':False, 'SOLVER':SOLVER, 'pre_specified_rate':True, 'alpha':0.5}),
+                ('F-TaS', FTaS,  {'delta': DELTA,'FAIR': True,'VERBOSE':False, 'SOLVER':SOLVER, 'pre_specified_rate':True, 'alpha':0.5}),
                 ('TaS', TaS, {'delta': DELTA,'FAIR': False,'VERBOSE':False, 'SOLVER':SOLVER, 'alpha':0.5}),
                 ('Uniform Fair', UniformBAI,  {'delta': DELTA,'FAIR': True})
             ]
