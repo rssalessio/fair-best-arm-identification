@@ -2,8 +2,7 @@
 
 This readme includes the instructions to run the experiments for the paper "Fair Best Arm Identification".
 
-For the full paper (including proofs and additional results), refer to the file in [`paper/full_paper.pdf`](https://github.com/rssalessio/fair-best-arm-identification/blob/main/paper/full_paper.pdf)
-
+You can find the full paper [here](https://arxiv.org/pdf/2408.17313)
 ## Python and Libraries
 
 To run the code make sure to use Python 3.11. The libraries needed are:
